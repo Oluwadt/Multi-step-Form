@@ -38,7 +38,7 @@ body {
 }
 
 .sidebar-img {
-    height: 130%;
+    height: 142%;
     transform: translate(1vw, 1vw);
 }
 
@@ -176,6 +176,19 @@ body {
 
 #step-four-div {
     display: none;
+}
+
+#step-five {
+    display: none;
+
+    text-align: center;
+    
+    position: absolute;
+    height: 120%;
+    width: 47%;
+
+    left: 43%;
+    top: 30%;
 }
 
 .error-field {
@@ -447,14 +460,17 @@ hr {
 }
 
 .summary-add-on-rate {
+    position: absolute;
     color: hsl(213, 96%, 18%);
-    transform: translate(26vw, -1vw);
     font-family: 'Ubuntu Bold', sans-serif;
+    right: 2.5vw;
+    transform: translateY(-2.5vw);
     margin: 0;
 }
 
 .add-on-name {
     margin: 0;
+    margin-bottom: 1.5vw;
 }
 
 #change-plan {
@@ -472,4 +488,39 @@ hr {
 #change-plan:hover {
     cursor: pointer;
     color: hsl(243, 100%, 62%);
+}
+
+.total {
+    display: flex;
+    position: relative;
+    align-content: center;    
+}
+
+#total-text {
+    font-size: 1vw;
+    color: hsl(231, 11%, 63%);
+    font-family: 'Ubuntu Light', sans-serif;
+    margin-left: 2vw;
+    margin-top: 2vw;
+}
+
+#total-fig {
+    position: absolute;
+    right: 2.5vw;
+    font-size: 1.5vw;
+    color: hsl(231, 11%, 63%);
+    font-family: 'Ubuntu Bold', sans-serif;
+    color: hsl(243, 100%, 62%);
+    transform: translateY(.5vw);
+}
+
+#thank-you {
+    color: hsl(213, 96%, 18%);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#thank-you-desc {
+    color: hsl(231, 11%, 63%);
+    letter-spacing: 0;
+    font-family: 'Ubuntu Light', sans-serif;
 }

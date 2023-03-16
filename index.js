@@ -1,50 +1,12 @@
 const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+const phoneRegex = /^\+?\d{1,3}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{3,4}[-.\s]?\d{4}$/
 const stepOneForm = document.getElementById('step-one')
-const stepTwo = `<div class="step" id="step-two-div">
-<h1>Select your plan</h1>
-<p class="step-desc">You have the option of monthly or yearly billing</p>
-
-<div class="plan-options">
-  <div class="plan-option" id="arcade-plan">
-    <img src="./assets/images/icon-arcade.svg" class="two-img"><br>
-    <h4>Arcade</h4>
-    <p id="arcade-rate" class="plan-rate">$9/mo</p>
-  </div>
-
-  <div class="plan-option" id="advanced-plan">
-    <img src="./assets/images/icon-advanced.svg" class="two-img"><br>
-    <h4>Advanced</h4>
-    <p id="advanced-rate" class="plan-rate">$12/mo</p>
-  </div>
-
-  <div class="plan-option" id="pro-plan">
-    <img src="./assets/images/icon-pro.svg" class="two-img"><br>
-    <h4>Pro</h4>
-    <p id="pro-rate" class="plan-rate">$15/mo</p>
-  </div>
-</div>
-
-<br>
-
-<div class="select-plan">
-  <p>
-    <p id="monthly">Monthly</p>
-    <label class="switch">
-      <input type="checkbox" id="checkbox">
-      <span class="slider"></span>
-    </label>
-    <p id="yearly">Yearly</p>
-</p>
-</div>
-<p class="back-btn" id="back-one">Go Back</p>
-
-<button id="next-three" class="next-btn">Next Step</button>
-</div>`
 
 const stepOneDiv = document.getElementById('step-one-div')
 const stepTwoDiv = document.getElementById('step-two-div')
 const stepThreeDiv = document.getElementById('step-three-div')
 const stepFourDiv = document.getElementById('step-four-div')
+const stepFive = document.getElementById('step-five')
 
 const nextTwo = document.getElementById('next-two')
 const nextThree = document.getElementById('next-three')
@@ -88,6 +50,11 @@ const addOnSummary = document.getElementById('add-on-summary')
 
 const changePlan = document.getElementById('change-plan')
 
+const totalText = document.getElementById('total-text')
+const totalFig = document.getElementById('total-fig')
+
+const submitBtn = document.getElementById('submit-btn')
+
 let interval = 'Monthly'
 
 stepOneButton.classList.add('current-step-btn')
@@ -110,9 +77,9 @@ stepOneForm.addEventListener('submit', (e) => {
         email.previousElementSibling.outerHTML = message
         email.classList.add('error-field')
     }
-    if (!number.value) {
+    if (!number.value.match(phoneRegex)) {
         hasErrors = true
-        const message = `<p class='error'>This field is required</p>`
+        const message = `<p class='error'>This isn't a valid phone number</p>`
         number.previousElementSibling.outerHTML = message
         number.classList.add('error-field')
     }
@@ -151,6 +118,8 @@ nextFour.onclick = () => {
 
     planName.innerText = `${selectedPlan.name}(${interval})`
     planRate.innerText = selectedPlan.rate
+
+    selectedAddOns = []
     
     addOns.forEach(addOn => {
         const checkbox = addOn.children[0]
@@ -163,7 +132,6 @@ nextFour.onclick = () => {
         }
         
         if (checkbox.checked == true) {
-            // console.log(addOn);
             selectedAddOns.push(newAddOn)
         }
     })
@@ -182,6 +150,26 @@ nextFour.onclick = () => {
         tempSelected += addOnDiv
     });
     addOnSummary.innerHTML = tempSelected
+
+    totalText.innerHTML = `Total(${interval.toLowerCase()})`
+
+    let totalCost = Number(selectedPlan.rate.slice(1, -3))
+    selectedAddOns.forEach(addOn => {
+        totalCost += Number(addOn.rate.slice(2, -3))
+    })
+    
+    switch (interval) {
+        case 'Monthly':
+            totalFig.innerHTML = `$${totalCost}/mo`
+            break;
+        
+        case 'Yearly':
+            totalFig.innerHTML = `$${totalCost}/yr`
+            break;
+    
+        default:
+            break;
+    }
 }
 
 changePlan.onclick = () => {
@@ -189,6 +177,11 @@ changePlan.onclick = () => {
     stepFourDiv.style.display = 'none'
     stepFourButton.classList.remove('current-step-btn')
     stepTwoButton.classList.add('current-step-btn')
+}
+
+submitBtn.onclick = () => {
+    stepFive.style.display = 'block'
+    stepFourDiv.style.display = 'none'
 }
 
 let formElements = document.forms['step-one'].elements
