@@ -25,14 +25,6 @@ const stepThreeDiv = document.getElementById('step-three-div')
 const stepFourDiv = document.getElementById('step-four-div')
 const stepFive = document.getElementById('step-five')
 
-// const nextTwo = document.getElementById('next-two')
-// const nextThree = document.getElementById('next-three')
-// const nextFour = document.getElementById('next-four')
-
-// const backOne = document.getElementById('back-one')
-// const backTwo = document.getElementById('back-two')
-// const backThree = document.getElementById('back-three')
-
 const monthlyText = document.getElementById('monthly')
 const yearlyText = document.getElementById('yearly')
 const switchBtn = document.getElementById('checkbox')
@@ -46,10 +38,6 @@ const stepTwoButton = document.querySelectorAll('.step-btn')[1]
 const stepThreeButton = document.querySelectorAll('.step-btn')[2]
 const stepFourButton = document.querySelectorAll('.step-btn')[3]
 
-const planOptions = document.querySelectorAll('.plan-option')
-const arcadeBtn = document.getElementById('arcade-plan')
-const advancedBtn = document.getElementById('advanced-plan')
-const proBtn = document.getElementById('pro-plan')
 
 const addOns = document.querySelectorAll('.add-on')
 const storageRate = document.getElementById('storage-rate')
@@ -70,6 +58,9 @@ const changePlan = document.getElementById('change-plan')
 const totalText = document.getElementById('total-text')
 const totalFig = document.getElementById('total-fig')
 
+
+const submitDiv = document.querySelectorAll('.submit-div')[0]
+const nextDiv = document.querySelectorAll('.next-div')[0]
 const nextBtn = document.querySelectorAll('.next-btn')[0]
 const backBtn = document.querySelectorAll('.back-btn')[0]
 const submitBtn = document.getElementById('submit-btn')
@@ -79,142 +70,9 @@ let interval = 'Monthly'
 stepOneButton.classList.add('current-step-btn')
 monthlyText.style.color = 'hsl(213, 96%, 18%)'
 
-// nextBtn.onclick = () => {
-//     if (window.getComputedStyle(stepOneDiv).getPropertyValue('display') != 'none') {
-//         stepOneForm.submit()
-//     }
-// }
-
-// stepOneForm.addEventListener('submit', (e) => {
-//     e.preventDefault()
-nextBtn.onclick = () => {
-
-    let hasErrors = false
-
-    if (!userName.value) {
-        hasErrors = true
-        const message = `<p class='error'>This field is required</p>`
-        userName.previousElementSibling.outerHTML = message
-        userName.classList.add('error-field')
-    }
-    if (!email.value.match(validRegex)) {
-        hasErrors = true
-        const message = `<p class='error'>This isn't a valid email</p>`
-        email.previousElementSibling.outerHTML = message
-        email.classList.add('error-field')
-    }
-    if (!number.value.match(phoneRegex)) {
-        hasErrors = true
-        const message = `<p class='error'>This isn't a valid phone number</p>`
-        number.previousElementSibling.outerHTML = message
-        number.classList.add('error-field')
-    }
-
-    if (!hasErrors) {
-        stepOneDiv.style.display = 'none'
-        stepTwoDiv.style.display = 'block'
-        backBtn.style.visibility = 'visible'
-        stepOneButton.classList.remove('current-step-btn')
-        stepTwoButton.classList.add('current-step-btn')
-    }
-}
-
-nextThree.onclick = () => {
-    planOptions.forEach(planOption => {
-        if (planOption.classList.contains('current-plan')) {
-            stepTwoDiv.style.display = 'none'
-            stepThreeDiv.style.display = 'block'
-            stepTwoButton.classList.remove('current-step-btn')
-            stepThreeButton.classList.add('current-step-btn')
-
-            selectedPlan = {
-                name: planOption.children[2].innerHTML,
-                rate: planOption.children[3].innerHTML
-            }
-        } else {
-            null
-        }
-    });
-}
-
-nextFour.onclick = () => {
-    stepThreeDiv.style.display = 'none'
-    stepFourDiv.style.display = 'block'
-    stepThreeButton.classList.remove('current-step-btn')
-    stepFourButton.classList.add('current-step-btn')
-
-    planName.innerText = `${selectedPlan.name}(${interval})`
-    planRate.innerText = selectedPlan.rate
-
-    selectedAddOns = []
-    
-    addOns.forEach(addOn => {
-        const checkbox = addOn.children[0]
-
-        const name = addOn.children[1].children[0].innerHTML
-        const rate = addOn.children[2].innerHTML
-        const newAddOn = {
-            name,
-            rate
-        }
-        
-        if (checkbox.checked == true) {
-            selectedAddOns.push(newAddOn)
-        }
-    })
-
-    selectedAddOns = selectedAddOns.filter((obj, index, self) =>
-        index === self.findIndex((el) => el.name === obj.name)
-    );
-
-    let tempSelected = ''
-
-    selectedAddOns.forEach(selected => {
-        const addOnDiv = `<div class="selected-add-on">
-        <p class="add-on-name">${selected.name}</p>
-        <p class="summary-add-on-rate">${selected.rate}</p>
-        </div>`
-        tempSelected += addOnDiv
-    });
-    addOnSummary.innerHTML = tempSelected
-
-    totalText.innerHTML = `Total(${interval.toLowerCase()})`
-
-    let totalCost = Number(selectedPlan.rate.slice(1, -3))
-    selectedAddOns.forEach(addOn => {
-        totalCost += Number(addOn.rate.slice(2, -3))
-    })
-    
-    switch (interval) {
-        case 'Monthly':
-            totalFig.innerHTML = `$${totalCost}/mo`
-            break;
-        
-        case 'Yearly':
-            totalFig.innerHTML = `$${totalCost}/yr`
-            break;
-    
-        default:
-            break;
-    }
-}
-
-changePlan.onclick = () => {
-    stepTwoDiv.style.display = 'block'
-    stepFourDiv.style.display = 'none'
-    stepFourButton.classList.remove('current-step-btn')
-    stepTwoButton.classList.add('current-step-btn')
-}
-
-submitBtn.onclick = () => {
-    stepFive.style.display = 'block'
-    stepFourDiv.style.display = 'none'
-}
-
 let formElements = document.forms['step-one'].elements
 formElements = Array.from(formElements)
 formElements = formElements.filter(field => field.className === 'input-field')
-
 formElements.forEach(element => {
     const field = document.getElementById(element.id)
     field.onchange = () => {
@@ -225,26 +83,10 @@ formElements.forEach(element => {
     }
 });
 
-backOne.onclick = () => {
-    stepOneDiv.style.display = 'block'
-    stepTwoDiv.style.display = 'none'
-    stepTwoButton.classList.remove('current-step-btn')
-    stepOneButton.classList.add('current-step-btn')
-}
-
-backTwo.onclick = () => {
-    stepTwoDiv.style.display = 'block'
-    stepThreeDiv.style.display = 'none'
-    stepThreeButton.classList.remove('current-step-btn')
-    stepTwoButton.classList.add('current-step-btn')
-}
-
-backThree.onclick = () => {
-    stepFourDiv.style.display = 'none'
-    stepThreeDiv.style.display = 'block'
-    stepFourButton.classList.remove('current-step-btn')
-    stepThreeButton.classList.add('current-step-btn')
-}
+const planOptions = document.querySelectorAll('.plan-option')
+const arcadeBtn = document.getElementById('arcade-plan')
+const advancedBtn = document.getElementById('advanced-plan')
+const proBtn = document.getElementById('pro-plan')
 
 arcadeBtn.onclick = () => {
     arcadeBtn.classList.add('current-plan')
@@ -311,6 +153,161 @@ switchBtn.onclick = () => {
     }    
 }
 
+nextBtn.onclick = () => {
+    if (window.getComputedStyle(stepOneDiv).getPropertyValue('display') != 'none') {
+        let hasErrors = false
+    
+        if (!userName.value) {
+            hasErrors = true
+            const message = `<p class='error' id="name-error">This field is required</p>`
+            userName.previousElementSibling.outerHTML = message
+            userName.classList.add('error-field')
+        }
+
+        if (!email.value.match(validRegex)) {
+            hasErrors = true
+            const message = `<p class='error' id="email-error">This isn't a valid email</p>`
+            email.previousElementSibling.outerHTML = message
+            email.classList.add('error-field')
+        }
+
+        if (!number.value.match(phoneRegex)) {
+            hasErrors = true
+            const message = `<p class='error' id="phone-error">This isn't a valid phone number</p>`
+            number.previousElementSibling.outerHTML = message
+            number.classList.add('error-field')
+        }
+    
+        if (!hasErrors) {
+            stepOneDiv.style.display = 'none'
+            stepTwoDiv.style.display = 'block'
+            backBtn.style.visibility = 'visible'
+            stepOneButton.classList.remove('current-step-btn')
+            stepTwoButton.classList.add('current-step-btn')
+        }
+    }
+
+    else if (window.getComputedStyle(stepTwoDiv).getPropertyValue('display') != 'none') {
+        planOptions.forEach(planOption => {
+            if (planOption.classList.contains('current-plan')) {
+                stepTwoDiv.style.display = 'none'
+                stepThreeDiv.style.display = 'block'
+                stepTwoButton.classList.remove('current-step-btn')
+                stepThreeButton.classList.add('current-step-btn')
+    
+                selectedPlan = {
+                    name: planOption.children[2].children[0].innerHTML,
+                    rate: planOption.children[2].children[1].innerHTML
+                }
+            } else {
+                null
+            }
+        });
+    }
+
+    else if (window.getComputedStyle(stepThreeDiv).getPropertyValue('display') != 'none') {
+        stepThreeDiv.style.display = 'none'
+        stepFourDiv.style.display = 'block'
+        stepThreeButton.classList.remove('current-step-btn')
+        stepFourButton.classList.add('current-step-btn')
+
+        planName.innerText = `${selectedPlan.name}(${interval})`
+        planRate.innerText = selectedPlan.rate
+
+        selectedAddOns = []
+        
+        addOns.forEach(addOn => {
+            const checkbox = addOn.children[0]
+
+            const name = addOn.children[1].children[0].innerHTML
+            const rate = addOn.children[2].innerHTML
+            const newAddOn = {
+                name,
+                rate
+            }
+            
+            if (checkbox.checked == true) {
+                selectedAddOns.push(newAddOn)
+            }
+        })
+
+        selectedAddOns = selectedAddOns.filter((obj, index, self) =>
+            index === self.findIndex((el) => el.name === obj.name)
+        );
+
+        let tempSelected = ''
+
+        selectedAddOns.forEach(selected => {
+            const addOnDiv = `<div class="selected-add-on">
+            <p class="add-on-name">${selected.name}</p>
+            <p class="summary-add-on-rate">${selected.rate}</p>
+            </div>`
+            tempSelected += addOnDiv
+        });
+        addOnSummary.innerHTML = tempSelected
+
+        totalText.innerHTML = `Total(${interval.toLowerCase()})`
+
+        let totalCost = Number(selectedPlan.rate.slice(1, -3))
+        selectedAddOns.forEach(addOn => {
+            totalCost += Number(addOn.rate.slice(2, -3))
+        })
+        
+        switch (interval) {
+            case 'Monthly':
+                totalFig.innerHTML = `$${totalCost}/mo`
+                break;
+            
+            case 'Yearly':
+                totalFig.innerHTML = `$${totalCost}/yr`
+                break;
+        
+            default:
+                break;
+        }
+
+        nextDiv.style.display = 'none'
+        submitDiv.style.display = 'block'
+    }
+}
+
+backBtn.onclick = () => {
+    if (window.getComputedStyle(stepTwoDiv).getPropertyValue('display') != 'none') {
+        stepOneDiv.style.display = 'block'
+        stepTwoDiv.style.display = 'none'
+        stepTwoButton.classList.remove('current-step-btn')
+        stepOneButton.classList.add('current-step-btn')
+    }
+    else if (window.getComputedStyle(stepThreeDiv).getPropertyValue('display') != 'none') {
+        stepTwoDiv.style.display = 'block'
+        stepThreeDiv.style.display = 'none'
+        stepThreeButton.classList.remove('current-step-btn')
+        stepTwoButton.classList.add('current-step-btn')
+    }
+    else if (window.getComputedStyle(stepFourDiv).getPropertyValue('display') != 'none') {
+        stepFourDiv.style.display = 'none'
+        stepThreeDiv.style.display = 'block'
+        stepFourButton.classList.remove('current-step-btn')
+        stepThreeButton.classList.add('current-step-btn')
+        nextDiv.style.display = 'block'
+        submitDiv.style.display = 'none'
+    }
+}
+
+changePlan.onclick = () => {
+    stepTwoDiv.style.display = 'block'
+    stepFourDiv.style.display = 'none'
+    stepFourButton.classList.remove('current-step-btn')
+    stepTwoButton.classList.add('current-step-btn')
+    nextDiv.style.display = 'block'
+    submitDiv.style.display = 'none'
+}
+
+submitBtn.onclick = () => {
+    stepFive.style.display = 'block'
+    stepFourDiv.style.display = 'none'
+}
+
 addOns.forEach(addOn => {
     const checkbox = addOn.children[0]
 
@@ -324,3 +321,4 @@ addOns.forEach(addOn => {
         }
     }
 });
+
