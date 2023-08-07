@@ -16,8 +16,18 @@
 
 <body>
   <div class="container">
+
     <!-- Sidebar start -->
     <div class="sidebar">
+      <img src="./assets/images/bg-sidebar-mobile.svg" class="sidebar-img">
+      <div class="steps">
+        <button class="step-btn">1</button>
+        <button class="step-btn">2</button>
+        <button class="step-btn">3</button>
+        <button class="step-btn">4</button>
+      </div>
+    </div>
+    <!-- <div class="sidebar">
       <img class="sidebar-img" src="./assets/images/bg-sidebar-desktop.svg" />
       <div class="steps">
         <div class="sidebar-step">
@@ -49,13 +59,13 @@
           <p class="step-info">SUMMARY</p>
         </div>  
       </div>
-    </div>
+    </div> -->
     <!-- Sidebar end -->
 
     <!-- Step 1 start -->
     <div class="step" id="step-one-div">
-      <h1>Personal info</h1>
-      <p class="step-desc">Please provide your name, email address, and phone number.</p>
+      <p class="step-header">Personal info</p>
+      <div><p class="step-desc">Please provide your name, email address, and phone number.</p></div>
       <form id="step-one" novalidate>
         <div class="field">
           <label for="name" class="label">Name</label><br>
@@ -63,7 +73,7 @@
         </div>
         
         <div class="field">
-          <label for="email" class="label">Email</label><br>
+          <label for="email" class="label">Email Address</label><br>
           <input type="email" placeholder="e.g. stephenking@lorem.com" id="email" class="input-field"><br>
         </div>
         
@@ -72,14 +82,13 @@
           <input type="text" placeholder="e.g. +1 234 567 890" id="number" class="input-field"><br>
         </div>
 
-        <button type="submit" id="next-two" class="next-btn">Next Step</button>
       </form>
     </div>
     <!-- Step 1 end -->
 
     <!-- Step 2 start -->
     <div class="step" id="step-two-div">
-      <h1>Select your plan</h1>
+      <p class="step-header">Select your plan</p>
       <p class="step-desc">You have the option of monthly or yearly billing</p>
 
       <div class="plan-options">
@@ -88,13 +97,13 @@
           <h4>Arcade</h4>
           <p id="arcade-rate" class="plan-rate">$9/mo</p>
         </div>
-  
+
         <div class="plan-option" id="advanced-plan">
           <img src="./assets/images/icon-advanced.svg" class="two-img"><br>
           <h4>Advanced</h4>
           <p id="advanced-rate" class="plan-rate">$12/mo</p>
         </div>
-  
+
         <div class="plan-option" id="pro-plan">
           <img src="./assets/images/icon-pro.svg" class="two-img"><br>
           <h4>Pro</h4>
@@ -114,15 +123,14 @@
           <p id="yearly">Yearly</p>
       </p>
       </div>
-      <p class="back-btn" id="back-one">Go Back</p>
 
-      <button id="next-three" class="next-btn">Next Step</button>
+      <!-- <button id="next-three" class="next-btn">Next Step</button> -->
     </div>
     <!-- Step 2 end -->
 
     <!-- Step 3 start -->
     <div class="step" id="step-three-div">
-      <h1>Pick add-ons</h1>
+      <p class="step-header">Pick add-ons</p>
       <p class="step-desc">Add-ons help enhance your gaming experience.</p>
       
       <div class="add-ons">
@@ -151,16 +159,13 @@
           <p class="add-on-rate" id="customize-rate">+$2/mo</p>
         </div>
       </div>
-
-      <p class="back-btn" id="back-two">Go Back</p>
-
-      <button class="next-btn" id="next-four">Next Step</button>
+      <!-- <button class="next-btn" id="next-four">Next Step</button> -->
     </div>
     <!-- Step 3 end -->
 
     <!-- Step 4 start -->
     <div class="step" id="step-four-div">
-      <h1>Finishing up</h1>
+      <p class="step-header">Finishing up</p>
       <p class="step-desc">Double-check everything looks OK before confirming.</p>
 
       <div class="summary">
@@ -177,7 +182,6 @@
         <p id="total-fig">$12/mo</p>
       </div>
 
-      <p class="back-btn" id="back-three">Go Back</p>
       <button id="submit-btn">Confirm</button>
     </div>
     <!-- Step 4 end -->
@@ -191,7 +195,17 @@
       support@loremgaming.com</p>
     </div>
     <!-- Step 5 end -->
+    
+    <footer>
+      <div class="back-div">
+        <button class="back-btn">Go Back</button>
+      </div>
+      <div class="next-div">
+        <button type="submit" id="next-two" class="next-btn">Next Step</button>
+      </div>
+    </footer>
   </div>
+  
 
   <script src="index.js"></script>
 </body>

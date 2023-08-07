@@ -1,3 +1,20 @@
+// if (window.innerWidth < 650) {
+//     const mobileFooter = document.querySelector('.footer')
+//     mobileFooter.innerHTML = `
+//     <p>
+//     <span id="remaining">0 items left</span>
+//     <span class="clear">Clear Completed</span>
+//   </p>`;
+//     mobileFooter.insertAdjacentHTML('afterend', `<div class="mobile-cat">
+//     <span class="footer-btns">
+//       <button id="all" class="footer-btn">All</button>
+//       <button id="active" class="footer-btn">Active</button>
+//       <button id="completed" class="footer-btn">Completed</button>
+//     </span>
+//   </div>`)
+ 
+// }
+
 const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 const phoneRegex = /^\+?\d{1,3}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{3,4}[-.\s]?\d{4}$/
 const stepOneForm = document.getElementById('step-one')
@@ -8,13 +25,13 @@ const stepThreeDiv = document.getElementById('step-three-div')
 const stepFourDiv = document.getElementById('step-four-div')
 const stepFive = document.getElementById('step-five')
 
-const nextTwo = document.getElementById('next-two')
-const nextThree = document.getElementById('next-three')
-const nextFour = document.getElementById('next-four')
+// const nextTwo = document.getElementById('next-two')
+// const nextThree = document.getElementById('next-three')
+// const nextFour = document.getElementById('next-four')
 
-const backOne = document.getElementById('back-one')
-const backTwo = document.getElementById('back-two')
-const backThree = document.getElementById('back-three')
+// const backOne = document.getElementById('back-one')
+// const backTwo = document.getElementById('back-two')
+// const backThree = document.getElementById('back-three')
 
 const monthlyText = document.getElementById('monthly')
 const yearlyText = document.getElementById('yearly')
@@ -53,6 +70,8 @@ const changePlan = document.getElementById('change-plan')
 const totalText = document.getElementById('total-text')
 const totalFig = document.getElementById('total-fig')
 
+const nextBtn = document.querySelectorAll('.next-btn')[0]
+const backBtn = document.querySelectorAll('.back-btn')[0]
 const submitBtn = document.getElementById('submit-btn')
 
 let interval = 'Monthly'
@@ -60,8 +79,15 @@ let interval = 'Monthly'
 stepOneButton.classList.add('current-step-btn')
 monthlyText.style.color = 'hsl(213, 96%, 18%)'
 
-stepOneForm.addEventListener('submit', (e) => {
-    e.preventDefault()
+// nextBtn.onclick = () => {
+//     if (window.getComputedStyle(stepOneDiv).getPropertyValue('display') != 'none') {
+//         stepOneForm.submit()
+//     }
+// }
+
+// stepOneForm.addEventListener('submit', (e) => {
+//     e.preventDefault()
+nextBtn.onclick = () => {
 
     let hasErrors = false
 
@@ -87,10 +113,11 @@ stepOneForm.addEventListener('submit', (e) => {
     if (!hasErrors) {
         stepOneDiv.style.display = 'none'
         stepTwoDiv.style.display = 'block'
+        backBtn.style.visibility = 'visible'
         stepOneButton.classList.remove('current-step-btn')
         stepTwoButton.classList.add('current-step-btn')
     }
-})
+}
 
 nextThree.onclick = () => {
     planOptions.forEach(planOption => {
