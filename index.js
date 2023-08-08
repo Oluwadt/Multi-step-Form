@@ -277,6 +277,7 @@ backBtn.onclick = () => {
     if (window.getComputedStyle(stepTwoDiv).getPropertyValue('display') != 'none') {
         stepOneDiv.style.display = 'block'
         stepTwoDiv.style.display = 'none'
+        backBtn.style.visibility = 'hidden'
         stepTwoButton.classList.remove('current-step-btn')
         stepOneButton.classList.add('current-step-btn')
     }

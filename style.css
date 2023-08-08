@@ -353,3 +353,133 @@ input:checked + .slider:before {
     letter-spacing: 0;
     font-family: 'Ubuntu Light', sans-serif;
 }
+
+#step-two-div {
+    display: none;
+}
+
+#step-three-div {
+    display: none;
+}
+
+#step-four-div {
+    display: none;
+}
+
+#step-five {
+    display: none;
+    text-align: center;
+    text-justify: auto;
+    padding: 3rem 1rem;
+}
+
+.error-field {
+    border: 1px solid hsl(0, 100%, 66%);
+}
+
+.error {
+    padding-left: 1rem;
+    font-size: .8rem;
+    font-family: 'Ubuntu Bold', sans-serif;
+    color: hsl(0, 100%, 66%);
+    padding: 0;
+    margin: .5rem 0;
+}
+
+.summary {
+    width: 95%;
+    background-color: hsl(230, 75%, 98%);
+    border-radius: .5rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin: 0 auto;
+}
+
+.plan-summary{
+    display: flex;
+    position: relative;
+    align-content: center;
+    font-size: 1rem;
+}
+
+#plan-name {
+    color: hsl(213, 96%, 18%);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#plan-rate {
+    color: hsl(213, 96%, 18%);
+    font-family: 'Ubuntu Bold', sans-serif;
+    position: absolute;
+    right: 4%;
+}
+
+hr {
+    width: 93%;
+    color: hsl(231, 11%, 63%);
+    margin: 0;
+    margin-bottom: 1rem;
+    margin-top: 1.2rem;
+}
+
+.selected-add-on {
+    display: flex;
+}
+
+#add-on-summary {
+    color: hsl(231, 11%, 63%);
+    font-size: 1rem;
+    font-family: 'Ubuntu Light', sans-serif;
+}
+
+.summary-add-on-rate {
+    position: absolute;
+    color: hsl(213, 96%, 18%);
+    font-family: 'Ubuntu Bold', sans-serif;
+    right: 14%;
+    margin: 0;
+    margin-bottom: 6%;
+}
+
+.add-on-name {
+    margin: 0;
+    margin-bottom: 1.5vw;
+}
+
+#change-plan {
+    position: absolute;
+    top: 38%;
+    border: none;
+    background-color: transparent;
+    color: hsl(231, 11%, 63%);
+    text-decoration: underline;
+    font-size: 1rem;
+    font-family: 'Ubuntu Light', sans-serif;
+}
+
+#change-plan:hover {
+    cursor: pointer;
+    color: hsl(243, 100%, 62%);
+}
+
+.total {
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-content: center;
+}
+
+#total-text {
+    font-size: 1rem;
+    color: hsl(231, 11%, 63%);
+    font-family: 'Ubuntu Light', sans-serif;
+}
+
+#total-fig {
+    position: absolute;
+    right: 5%;
+    font-size: 1rem;
+    color: hsl(231, 11%, 63%);
+    font-family: 'Ubuntu Bold', sans-serif;
+    color: hsl(243, 100%, 62%);
+}
