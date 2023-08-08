@@ -65,6 +65,8 @@ const nextBtn = document.querySelectorAll('.next-btn')[0]
 const backBtn = document.querySelectorAll('.back-btn')[0]
 const submitBtn = document.getElementById('submit-btn')
 
+const footer = document.querySelectorAll('.footer')[0]
+
 let interval = 'Monthly'
 
 stepOneButton.classList.add('current-step-btn')
@@ -306,6 +308,7 @@ changePlan.onclick = () => {
 submitBtn.onclick = () => {
     stepFive.style.display = 'block'
     stepFourDiv.style.display = 'none'
+    footer.style.display = 'none'
 }
 
 addOns.forEach(addOn => {
