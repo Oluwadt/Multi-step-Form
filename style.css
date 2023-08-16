@@ -493,18 +493,23 @@ hr {
 @media only screen and (min-width: 1024px) {
     body {
         background-image: none;
+        display: grid;
+        align-items: center;
     }
 
     .container {
-        height: 60%;
+        height: 500px;
         background-color: white;
         padding: 1rem;
-        width: 70%;
+        width: 60%;
         margin: 0 auto;
         display: flex;
-        flex-direction: row;
-        position: static;
         justify-content: space-between;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        /* transform: translate(-50%, -260px); */
+        /* top: 50%; */
         border-radius: 1rem;
     }
 
@@ -570,14 +575,13 @@ hr {
         margin-bottom: 2rem;
     }
 
-    .footer {
-        width: 50%;
+    /* .footer {
         margin: 0 auto;
-    }
+    } */
 
     .input-field {
         margin-top: .5rem;
-        margin-bottom: .7rem;
+        margin-bottom: 0;
         padding: .8em .8em;
         border-radius: .5em;
     }
@@ -586,5 +590,49 @@ hr {
         position: absolute;
         right: 5%;
         top: 0;
+    }
+
+    .plan-options {
+        display: flex;
+        gap: 15px;
+    }
+
+    .plan-options > * {
+        width: 33%;
+    }
+
+    .plan-option {
+        display: block;
+        border: 1px solid hsl(229, 24%, 87%);
+        border-radius: 8px;
+        padding: 1rem .9rem;
+        margin-bottom: 5%;
+    }
+
+    .plan-details > h4 {
+        margin-top: 2rem;
+        margin-bottom: .5rem;
+    }
+
+    .plan-rate {
+        margin: 0;
+    }
+    
+    .two-months {
+        font-size: .8rem;
+        margin-bottom: 0;
+    }
+    
+    .footer {
+        background-color: transparent;
+        position: absolute;
+        top: 76%;
+        left: 50%;
+        width: 33%;
+        transform: translateX(-15%);
+    }
+
+    .add-on {
+        width: 93%;
     }
 }
