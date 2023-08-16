@@ -34,7 +34,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshots/Screenshot%201.png)
+![](./screenshots/Screenshot%202.png)
+![](./screenshots/Screenshot%203.png)
+![](./screenshots/Screenshot%204.png)
+![](./screenshots/Screenshot%205.png)
+![](./screenshots/Screenshot%206.png)
+![](./screenshots/Screenshot%207.png)
 
 ### Links
 
@@ -166,7 +172,7 @@ switchBtn.onclick = () => {
 
 ### Useful resources
 
-- [Conquering Responsive Design](https://courses.kevinpowell.co/view/courses/conquering-responsive-layouts) - This is a course on creating responsive layouts.
+- [Conquering Responsive Layouts](https://courses.kevinpowell.co/view/courses/conquering-responsive-layouts) - This is the course that helped me with making the site responsive.
 
 ## Author
 
