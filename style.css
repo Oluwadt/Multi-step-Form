@@ -634,4 +634,8 @@ hr {
     #step-five {
         align-self: center;
     }
+
+    .summary-add-on-rate {
+        right: 10%;
+    }
 }
