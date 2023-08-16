@@ -575,10 +575,6 @@ hr {
         margin-bottom: 2rem;
     }
 
-    /* .footer {
-        margin: 0 auto;
-    } */
-
     .input-field {
         margin-top: .5rem;
         margin-bottom: 0;
@@ -625,11 +621,10 @@ hr {
     
     .footer {
         background-color: transparent;
-        position: absolute;
-        top: 76%;
-        left: 50%;
         width: 33%;
-        transform: translateX(-15%);
+        position: absolute;
+        left: 50%;
+        transform: translate(-15%, 200px);
     }
 
     .add-on {
