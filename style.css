@@ -635,4 +635,8 @@ hr {
     .add-on {
         width: 93%;
     }
+    
+    #step-five {
+        align-self: center;
+    }
 }
