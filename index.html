@@ -1,65 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="stylesheet" href="style.css">
-  
-  <title>Multi-step form</title>
-</head>
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Multi-step form</title>
+  </head>
 
   <body>
+    <div class="container">
       <!-- Sidebar start -->
       <div class="sidebar">
-        <!-- <img src="./assets/images/bg-sidebar-mobile.svg" class="sidebar-img"> -->
         <div class="steps">
-          <button class="step-btn">1</button>
-          <button class="step-btn">2</button>
-          <button class="step-btn">3</button>
-          <button class="step-btn">4</button>
+          <div class="sidebar-step">
+            <button class="step-btn">1</button>
+            <div class="step-info">
+              <p class="step-label">STEP 1</p>
+              <p class="step-name">YOUR INFO</p>
+            </div>
+          </div>
+          <div class="sidebar-step">
+            <button class="step-btn">2</button>
+            <div class="step-info">
+              <p class="step-label">STEP 2</p>
+              <p class="step-name">SELECT PLAN</p>
+            </div>
+          </div>
+          <div class="sidebar-step">
+            <button class="step-btn">3</button>
+            <div class="step-info">
+              <p class="step-label">STEP 3</p>
+              <p class="step-name">ADD-ONS</p>
+            </div>
+          </div>
+          <div class="sidebar-step">
+            <button class="step-btn">4</button>
+            <div class="step-info">
+              <p class="step-label">STEP 4</p>
+              <p class="step-name">SUMMARY</p>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- <div class="sidebar">
-        <img class="sidebar-img" src="./assets/images/bg-sidebar-desktop.svg" />
-        <div class="steps">
-          <div class="sidebar-step">
-            <button class="step-btn">
-              1
-            </button>
-            <p class="step-label">STEP 1</p>
-            <p class="step-info">YOUR INFO</p>
-          </div>
-          <div class="sidebar-step">
-            <button class="step-btn">
-              2
-            </button>
-            <p class="step-label">STEP 2</p>
-            <p class="step-info">SELECT PLAN</p>
-          </div>
-          <div class="sidebar-step">
-            <button class="step-btn">
-              3
-            </button>
-            <p class="step-label">STEP 3</p>
-            <p class="step-info">ADD-ONS</p>
-          </div>
-          <div class="sidebar-step">
-            <button class="step-btn">
-              4
-            </button>
-            <p class="step-label">STEP 4</p>
-            <p class="step-info">SUMMARY</p>
-          </div>  
-        </div>
-      </div> -->
       <!-- Sidebar end -->
-
       <!-- Step 1 start -->
       <div class="step" id="step-one-div">
         <p class="step-header">Personal info</p>
@@ -69,26 +59,23 @@
             <label for="name" class="label">Name</label><br>
             <input type="text" placeholder="e.g. Stephen King" id="name" class="input-field"><br>
           </div>
-          
+      
           <div class="field">
             <label for="email" class="label">Email Address</label><br>
             <input type="email" placeholder="e.g. stephenking@lorem.com" id="email" class="input-field"><br>
           </div>
-          
+      
           <div class="field">
             <label for="number" class="label">Phone Number</label><br>
             <input type="text" placeholder="e.g. +1 234 567 890" id="number" class="input-field"><br>
           </div>
-
         </form>
       </div>
       <!-- Step 1 end -->
-
       <!-- Step 2 start -->
       <div class="step" id="step-two-div">
         <p class="step-header">Select your plan</p>
         <p class="step-desc">You have the option of monthly or yearly billing</p>
-
         <div class="plan-options">
           <div class="plan-option" id="arcade-plan">
             <img src="./assets/images/icon-arcade.svg" class="two-img"><br>
@@ -97,7 +84,6 @@
               <p id="arcade-rate" class="plan-rate">$9/mo</p>
             </div>
           </div>
-
           <div class="plan-option" id="advanced-plan">
             <img src="./assets/images/icon-advanced.svg" class="two-img"><br>
             <div class="plan-details">
@@ -105,7 +91,6 @@
               <p id="advanced-rate" class="plan-rate">$12/mo</p>
             </div>
           </div>
-
           <div class="plan-option" id="pro-plan">
             <img src="./assets/images/icon-pro.svg" class="two-img"><br>
             <div class="plan-details">
@@ -114,9 +99,7 @@
           </div>
           </div>
         </div>
-
         <br>
-
         <div class="select-plan">
           <p>
             <p id="monthly">Monthly</p>
@@ -127,16 +110,13 @@
             <p id="yearly">Yearly</p>
           </p>
         </div>
-
-        <!-- <button id="next-three" class="next-btn">Next Step</button> -->
       </div>
       <!-- Step 2 end -->
-
       <!-- Step 3 start -->
       <div class="step" id="step-three-div">
         <p class="step-header">Pick add-ons</p>
         <p class="step-desc">Add-ons help enhance your gaming experience.</p>
-        
+      
         <div class="add-ons">
           <div class="add-on">
               <input type="checkbox" class="add-on-check" id="online-check" name="online-check">
@@ -165,12 +145,10 @@
         </div>
       </div>
       <!-- Step 3 end -->
-
       <!-- Step 4 start -->
       <div class="step" id="step-four-div">
         <p class="step-header">Finishing up</p>
         <p class="step-desc">Double-check everything looks OK before confirming.</p>
-
         <div class="summary">
           <div class="plan-summary">
             <p id="plan-name"></p>
@@ -186,17 +164,17 @@
         </div>
       </div>
       <!-- Step 4 end -->
-
       <!-- Step 5 start -->
       <div class="step" id="step-five">
         <img src="./assets/images/icon-thank-you.svg">
         <h1 id="thank-you">Thank You!</h1>
-        <p id="thank-you-desc">Thanks for confirming your subscription! 
-          We hope you have fun using our platform. If you ever need support, feel free to email us at 
+        <p id="thank-you-desc">Thanks for confirming your subscription!
+          We hope you have fun using our platform. If you ever need support, feel free to email us at
         support@loremgaming.com</p>
       </div>
       <!-- Step 5 end -->
-
+    </div>
+      
     <div class="footer">
       <div class="back-div">
         <button class="back-btn">Go Back</button>
@@ -209,6 +187,6 @@
       </div>
     </div>
  
-  <script src="index.js"></script>    
+    <script src="index.js"></script>    
   </body>
 </html>
